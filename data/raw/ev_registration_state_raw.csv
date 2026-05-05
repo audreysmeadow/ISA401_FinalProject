@@ -1,0 +1,53 @@
+State,Registration Count,...3,...4
+Alabama,13047,NA,NA
+Alaska,2697,NA,NA
+Arizona,89798,NA,NA
+Arkansas,7108,NA,NA
+California,1256646,NA,NA
+Colorado,90083,NA,NA
+Connecticut,31557,NA,NA
+Delaware,8435,NA,NA
+District of Columbia,8066,NA,NA
+Florida,254878,NA,NA
+Georgia,92368,NA,NA
+Hawaii,25565,NA,NA
+Idaho,8501,NA,NA
+Illinois,99573,NA,NA
+Indiana,26101,NA,NA
+Iowa,9031,NA,NA
+Kansas,11271,NA,NA
+Kentucky,11617,NA,NA
+Louisiana,8150,NA,NA
+Maine,7377,NA,NA
+Maryland,72139,NA,NA
+Massachusetts,73768,NA,NA
+Michigan,50284,NA,NA
+Minnesota,37050,NA,NA
+Mississippi,3590,NA,NA
+Missouri,26861,NA,NA
+Montana,4608,NA,NA
+Nebraska,6920,NA,NA
+Nevada,47361,NA,NA
+New Hampshire,9861,NA,NA
+New Jersey,134753,NA,NA
+New Mexico,10276,NA,NA
+New York,131250,NA,NA
+North Carolina,70164,NA,Data Source:
+North Dakota,959,NA,Vehicle registration counts derived by the National Renewable Energy Laboratory with data from Experian Information Solutions.
+Ohio,50393,NA,NA
+Oklahoma,22843,NA,Notes:
+Oregon,64361,NA,Only all-electric vehicles are included in this chart; plug-in hybrid electric vehicles (PHEVs) are not included.
+Pennsylvania,70154,NA,Registration counts are approximate.
+Rhode Island,6396,NA,"California had approximately 1,256,646  and Florida had approximately 254,878 light-duty electric vehicle registrations in 2023, but the chart is cut off at 250,000 to make it easier to see the other states."
+South Carolina,20873,NA,NA
+South Dakota,1675,NA,NA
+Tennessee,33221,NA,Worksheet available at afdc.energy.gov/data
+Texas,230125,NA,Last updated September 2024
+Utah,39998,NA,NA
+Vermont,7816,NA,NA
+Virginia,84936,NA,NA
+Washington,152101,NA,NA
+West Virginia,2758,NA,NA
+Wisconsin,24943,NA,NA
+Wyoming,1139,NA,NA
+Total,3555445,NA,NA

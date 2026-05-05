@@ -1,0 +1,11 @@
+Run_Date,Check_Name,Rule,Severity,Status,Issue_Count
+2026-05-04,Expected 50 states,The final dataset should contain exactly one row for each of the 50 states.,High,Pass,0
+2026-05-04,Missing state,State and State_Abbr cannot be blank.,High,Pass,0
+2026-05-04,Duplicate state rows,Each state should appear once.,High,Pass,0
+2026-05-04,Invalid EV count,EV_Count must be greater than or equal to zero.,High,Pass,0
+2026-05-04,Invalid population,Population must be greater than zero.,High,Pass,0
+2026-05-04,Invalid income,Median household income must be greater than zero.,High,Pass,0
+2026-05-04,Invalid charger count,Charging station counts must be greater than or equal to zero.,High,Pass,0
+2026-05-04,Failed joins,"Every state should join across EV, charging, Census, and PlugShare sources.",High,Pass,0
+2026-05-04,Division errors,Rate calculations should not produce infinite or NaN values.,High,Pass,0
+2026-05-04,Score range,EV_Opportunity_Score and component scores should fall between 0 and 100.,Medium,Pass,0

@@ -1,0 +1,10 @@
+Metric,Min,Median,Mean,Max
+AFDC_Charging_Station_Count,84,756,1697.92,20578
+Chargers_Per_1000_EVs,43.65,99.29,118.32,309.04
+EV_Count,959,25833,70947.58,1256646
+EV_Opportunity_Score,9.82,26.23,28.34,67.14
+EVs_Per_10000_Residents,12.13,55.77,75.36,319.3
+Median_Household_Income,52985,72090,74266.7,98461
+PlugShare_Station_Count,323,2867,5270.14,60319
+Population,577929,4571740.5,6608540.12,39356104
+Poverty_Rate,7.33,11.85,12.3,19.2
