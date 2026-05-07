@@ -1,16 +1,15 @@
 # 09_run_all_pipelines.R
-# Runs the full EV opportunity data workflow in order.
+# Runs available project data acquisition and documentation outputs.
 
 pipeline_scripts <- c(
   "R/01_ev_registration_state_pipeline.R",
   "R/02_afdc_charging_pipeline.R",
   "R/03_census_state_pipeline.R",
-  "R/04_plugshare_scraping_pipeline.R",
-  "R/05_merge_state_dataset.R",
-  "R/06_calculate_scores.R",
-  "R/07_validate_dataset.R",
-  "R/08_export_dashboard_data.R",
-  "R/10_exploratory_summaries.R"
+  "R/04_aaa_gas_prices_pipeline.R",
+  "R/11_calculate_station_spacing.R",
+  "R/08_build_final_state_dataset.R",
+  "R/12_generate_raw_data_legends.R",
+  "R/13_validate_tidy_data.R"
 )
 
 for (script in pipeline_scripts) {
@@ -18,4 +17,4 @@ for (script in pipeline_scripts) {
   source(script)
 }
 
-message("Full EV opportunity data workflow complete.")
+message("Project data acquisition, final dataset, validation, and documentation workflow complete.")

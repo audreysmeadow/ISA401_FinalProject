@@ -1,0 +1,8 @@
+Dataset,File,Row_Grain,Key_Columns,Row_Count,Column_Count,File_Exists,Missing_Key_Columns,Rows_With_Missing_Key,Duplicate_Key_Rows,Tidy_Check
+EV registrations by state,data/clean/ev_registration_state_clean.csv,One row per U.S. state,"State, State_Abbr",50,3,TRUE,,0,0,PASS
+AFDC charging stations by state,data/clean/afdc_charging_state_clean.csv,One row per U.S. state,"State, State_Abbr",50,7,TRUE,,0,0,PASS
+AFDC charging station locations,data/clean/afdc_charging_station_clean.csv,One row per physical charging station,Station_ID,85130,20,TRUE,,0,0,PASS
+Census ACS state context,data/clean/census_state_clean.csv,One row per U.S. state,"State, State_Abbr",50,19,TRUE,,0,0,PASS
+AAA gas prices by state,data/clean/aaa_state_gas_prices_clean.csv,One row per U.S. state,"State, State_Abbr",50,10,TRUE,,0,0,PASS
+AFDC station spacing by state,data/final/afdc_charging_station_distance_summary.csv,One row per U.S. state,"State, State_Abbr",50,8,TRUE,,0,0,PASS
+Final state analysis dashboard dataset,data/final/ev_state_analysis_final.csv,One row per U.S. state,"State, State_Abbr",50,40,TRUE,,0,0,PASS

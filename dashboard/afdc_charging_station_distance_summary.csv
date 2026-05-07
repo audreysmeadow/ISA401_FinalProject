@@ -1,0 +1,51 @@
+State,State_Abbr,Station_Count,Stations_With_Nearest_Neighbor,Average_Nearest_Station_Distance_Miles,Median_Nearest_Station_Distance_Miles,Min_Nearest_Station_Distance_Miles,Max_Nearest_Station_Distance_Miles
+Alabama,AL,657,657,0.89,0.08,0,23.88
+Alaska,AK,83,83,24.29,0.35,0,957.02
+Arizona,AZ,1582,1582,0.59,0.06,0,47.59
+Arkansas,AR,394,394,1.3,0.2,0,42.19
+California,CA,20628,20628,0.18,0.01,0,46.1
+Colorado,CO,2949,2949,0.44,0.03,0,37.06
+Connecticut,CT,1698,1698,0.3,0.08,0,6.11
+Delaware,DE,254,254,0.41,0.06,0,6.68
+Florida,FL,4659,4659,0.42,0.09,0,24.42
+Georgia,GA,2484,2484,0.76,0.03,0,836.34
+Hawaii,HI,428,428,0.5,0.07,0,18.84
+Idaho,ID,271,271,2.31,0.2,0,84.29
+Illinois,IL,1910,1910,0.66,0.09,0,34.08
+Indiana,IN,767,767,1.02,0.18,0,20.18
+Iowa,IA,508,508,2.05,0.15,0,50.03
+Kansas,KS,611,611,1.27,0.01,0,64.61
+Kentucky,KY,409,409,1.67,0.39,0,30.57
+Louisiana,LA,326,326,1.75,0.35,0,37.44
+Maine,ME,683,683,0.75,0.1,0,28.58
+Maryland,MD,1823,1823,0.4,0.11,0,10.93
+Massachusetts,MA,4505,4505,0.16,0.01,0,6.45
+Michigan,MI,2122,2122,1.14,0.1,0,955.5
+Minnesota,MN,1174,1174,1.11,0.14,0,57.1
+Mississippi,MS,249,249,1.58,0.33,0,32.27
+Missouri,MO,1394,1394,0.62,0.01,0,38.23
+Montana,MT,164,164,5.81,0.43,0,79.63
+Nebraska,NE,331,331,1.37,0.1,0,38.52
+Nevada,NV,687,687,1.01,0.07,0,70.96
+New Hampshire,NH,335,335,0.85,0.12,0,12.9
+New Jersey,NJ,1934,1934,0.35,0.06,0,8.2
+New Mexico,NM,509,509,1.91,0.08,0,44.68
+New York,NY,5512,5512,0.39,0.07,0,22.85
+North Carolina,NC,2021,2021,0.76,0.12,0,166.83
+North Dakota,ND,113,113,2.04,0.2,0,40.83
+Ohio,OH,2064,2064,0.66,0.09,0,23.56
+Oklahoma,OK,437,437,2.15,0.3,0,42.35
+Oregon,OR,1743,1743,0.69,0.07,0,49.85
+Pennsylvania,PA,2127,2127,0.67,0.06,0,22.99
+Rhode Island,RI,365,365,7.17,0.01,0,2517.52
+South Carolina,SC,744,744,1.06,0.19,0,16.59
+South Dakota,SD,121,121,2.49,0.27,0,53.23
+Tennessee,TN,1228,1228,0.84,0.05,0,22.68
+Texas,TX,3994,3994,0.83,0.13,0,60.79
+Utah,UT,1051,1051,0.48,0.02,0,49.45
+Vermont,VT,560,560,0.63,0.08,0,15.44
+Virginia,VA,2024,2024,0.55,0.06,0,27.02
+Washington,WA,3237,3237,0.38,0.01,0,28.04
+West Virginia,WV,210,210,1.79,0.27,0,21.33
+Wisconsin,WI,920,920,1.28,0.12,0,27.18
+Wyoming,WY,131,131,3.2,0.35,0,47.45

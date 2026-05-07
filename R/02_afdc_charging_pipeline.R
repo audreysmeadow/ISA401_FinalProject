@@ -1,22 +1,14 @@
 # 02_afdc_charging_pipeline.R
-# Pull and clean AFDC EV charging station data.
+# Pull AFDC station data and create state and station-level clean files.
 
 source("R/00_setup.R")
 
-# -----------------------------
-# Output paths
-# -----------------------------
-
 raw_output_path <- file.path(raw_dir, "afdc_charging_raw.csv")
-clean_output_path <- file.path(clean_dir, "afdc_charging_state_clean.csv")
+state_clean_output_path <- file.path(clean_dir, "afdc_charging_state_clean.csv")
 station_clean_output_path <- file.path(clean_dir, "afdc_charging_station_clean.csv")
 
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(clean_dir, recursive = TRUE, showWarnings = FALSE)
-
-# -----------------------------
-# Pull raw AFDC / NLR data
-# -----------------------------
 
 afdc_request <- request(AFDC_BASE_URL) |>
   req_url_query(
@@ -28,43 +20,25 @@ afdc_request <- request(AFDC_BASE_URL) |>
   )
 
 afdc_response <- req_perform(afdc_request)
-
 afdc_json <- resp_body_json(afdc_response, simplifyVector = TRUE)
-
 afdc_raw <- as_tibble(afdc_json$fuel_stations)
 
 afdc_raw_flat <- afdc_raw |>
   clean_names() |>
   select(
     any_of(c(
-      "id",
-      "station_name",
-      "street_address",
-      "city",
-      "state",
-      "zip",
-      "country",
-      "status_code",
-      "access_code",
-      "fuel_type_code",
-      "ev_level2_evse_num",
-      "ev_dc_fast_num",
-      "ev_network",
-      "latitude",
-      "longitude",
-      "date_last_confirmed",
-      "open_date",
-      "updated_at",
-      "owner_type_code",
-      "facility_type"
+      "id", "station_name", "street_address", "city", "state", "zip",
+      "country", "status_code", "access_code", "fuel_type_code",
+      "ev_level2_evse_num", "ev_dc_fast_num", "ev_network",
+      "latitude", "longitude", "date_last_confirmed", "open_date",
+      "updated_at", "owner_type_code", "facility_type"
     ))
+  ) |>
+  mutate(
+    across(where(is.character), ~ str_squish(str_replace_all(.x, "[\r\n]+", " ")))
   )
 
 write_csv(afdc_raw_flat, raw_output_path)
-
-# -----------------------------
-# Clean station-level location data
-# -----------------------------
 
 afdc_charging_station_clean <- afdc_raw_flat |>
   filter(
@@ -110,33 +84,21 @@ afdc_charging_station_clean <- afdc_raw_flat |>
     Date_Last_Confirmed = date_last_confirmed,
     Updated_At = updated_at
   ) |>
-  mutate(
-    across(
-      where(is.character),
-      ~ str_squish(str_replace_all(.x, "[\r\n]+", " "))
-    )
-  ) |>
   arrange(State, City, Station_Name, Station_ID)
 
 write_csv(afdc_charging_station_clean, station_clean_output_path)
 
-# -----------------------------
-# Clean and aggregate by state
-# -----------------------------
-
-afdc_charging_state_clean <- afdc_raw |>
-  clean_names() |>
-  filter(state %in% state.abb) |>
-  group_by(State_Abbr = state) |>
+afdc_charging_state_clean <- afdc_charging_station_clean |>
+  group_by(State, State_Abbr) |>
   summarise(
     AFDC_Charging_Station_Count = n(),
-    Level2_Charger_Count = sum(as.numeric(ev_level2_evse_num), na.rm = TRUE),
-    DC_Fast_Charger_Count = sum(as.numeric(ev_dc_fast_num), na.rm = TRUE),
-    Public_Station_Count = sum(access_code == "public", na.rm = TRUE),
-    Private_Station_Count = sum(access_code == "private", na.rm = TRUE),
+    Level2_Charger_Count = sum(Level2_Charger_Count, na.rm = TRUE),
+    DC_Fast_Charger_Count = sum(DC_Fast_Charger_Count, na.rm = TRUE),
+    Public_Station_Count = sum(Access_Type == "Public", na.rm = TRUE),
+    Private_Station_Count = sum(Access_Type == "Private", na.rm = TRUE),
     .groups = "drop"
   ) |>
-  right_join(state_lookup, by = "State_Abbr") |>
+  right_join(state_lookup, by = c("State", "State_Abbr")) |>
   mutate(
     across(
       c(
@@ -149,27 +111,10 @@ afdc_charging_state_clean <- afdc_raw |>
       ~ replace_na(.x, 0)
     )
   ) |>
-  select(
-    State,
-    State_Abbr,
-    AFDC_Charging_Station_Count,
-    Level2_Charger_Count,
-    DC_Fast_Charger_Count,
-    Public_Station_Count,
-    Private_Station_Count
-  ) |>
   arrange(State)
 
-write_csv(
-  afdc_charging_state_clean,
-  clean_output_path
-)
+write_csv(afdc_charging_state_clean, state_clean_output_path)
 
-if (nrow(afdc_charging_state_clean) != 50) {
-  warning("Expected 50 states, but found ", nrow(afdc_charging_state_clean), " rows.")
-}
-
-message("AFDC charging state pipeline complete.")
-message("Raw file saved to: ", raw_output_path)
-message("Clean file saved to: ", clean_output_path)
-message("Station-level clean file saved to: ", station_clean_output_path)
+message("AFDC station pipeline complete.")
+message("State file: ", state_clean_output_path)
+message("Station-level file: ", station_clean_output_path)
